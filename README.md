@@ -2,6 +2,8 @@
 
 > With this simple app you get information about Marvel characters and it serves for me as an experience in learning the main concepts behind Vue.js.
 
+Have a look at: https://fabianmebus.github.io/marvel-characters/
+
 ## Build Setup
 
 ``` bash
