@@ -7,7 +7,7 @@
 
     <div v-if="characters.data.count > 0">
       <ul>
-        <li v-for="character in characters.data.results" :key="character.id">
+        <li v-for="character in characters.data.results" v-bind:key="character.id">
           <character-search-result-item v-bind:character="character"></character-search-result-item>
         </li>
       </ul>
@@ -25,7 +25,6 @@
   export default {
     name: 'character-search-result',
     props: ['characters', 'query'],
-    // todo: :key WTF!?
     components: {
       'character-search-result-item': CharacterSearchResultItem
     }

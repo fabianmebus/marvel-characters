@@ -1,7 +1,6 @@
 <template>
   <div>
     <label for="searchInput">Character Search</label>
-    <!-- todo: v-model!? -->
     <input v-model="inputQuery" id="searchInput" type="search" placeholder="e.g. hulk">
     <small>Enter at least 3 letters, results will be automatically shown and updated.</small>
   </div>
