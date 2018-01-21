@@ -11,7 +11,8 @@
     </main>
 
     <footer>
-      Created with &#9829; and <a href="https://vuejs.org/">Vue.js</a> by <a href="https://fabianmebus.com">Fabian Mebus</a>
+      Created with &#9829; and <a href="https://vuejs.org/">Vue.js</a> by <a href="https://fabianmebus.com">Fabian Mebus</a><br>
+      <a href="https://github.com/fabianmebus/marvel-characters">Find the source code on GitHub.</a>
     </footer>
 
   </div>
