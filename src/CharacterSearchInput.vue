@@ -39,6 +39,7 @@
     padding: 10px;
     width: 100%;
     border-radius: 5px;
+    -webkit-appearance: textfield;
   }
 
   small {
