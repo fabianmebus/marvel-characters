@@ -6,8 +6,14 @@
     </header>
 
     <main>
-      <character-search-input v-on:queryChanged="handelQueryChange"></character-search-input>
-      <character-search-result v-if="characters.length !== 0" v-bind="{'characters': characters, 'query': query}"></character-search-result>
+      <!--<character-search-input v-on:queryChanged="handelQueryChange"></character-search-input>-->
+      <!--<router-view v-on:queryChanged="handelQueryChange"></router-view>-->
+      <!--<character-search-result v-if="characters.length !== 0" v-bind="{'characters': characters, 'query': query}"></character-search-result>-->
+
+      <!-- todo: does this routing makes sense anymore?-->
+      <router-view name="a" v-on:queryChanged="handelQueryChange"></router-view>
+      <router-view v-if="characters.length !== 0" v-bind="{'characters': characters, 'query': query}"></router-view>
+
     </main>
 
     <footer>
@@ -19,15 +25,15 @@
 </template>
 
 <script>
-  import CharacterSearchInput from './CharacterSearchInput.vue';
-  import CharacterSearchResult from './CharacterSearchResult.vue';
+  //  import CharacterSearchInput from './components/CharacterSearchInput.vue';
+  //  import CharacterSearchResult from './components/CharacterSearchResult.vue';
 
   export default {
     name: 'app',
-    components: {
-      'character-search-input': CharacterSearchInput,
-      'character-search-result': CharacterSearchResult
-    },
+//    components: {
+//      'character-search-input': CharacterSearchInput,
+//      'character-search-result': CharacterSearchResult
+//    },
     data() {
       return {
         query: '',
