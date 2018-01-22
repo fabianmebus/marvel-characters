@@ -9,10 +9,14 @@
 <script>
   export default {
     name: 'character-search-input',
+    props: ['oldQuery'],
     data() {
       return {
         inputQuery: ''
       };
+    },
+    created: function () {
+      this.inputQuery = this.oldQuery;
     },
     watch: {
       inputQuery: function (query) {
