@@ -7,20 +7,14 @@ Vue.use(VueResource);
 Vue.use(VueRouter);
 
 import App from './App.vue'
-// import Search from './components/Search.vue';
-import CharacterSearchInput from './components/CharacterSearchInput.vue';
-import CharacterSearchResult from './components/CharacterSearchResult.vue';
+import CharacterSearch from './components/CharacterSearch.vue';
 import Character from './components/Character.vue';
 
 
 const routes = [
   {
     path: '/',
-    // component: Search
-    components: {
-      default: CharacterSearchResult,
-      a: CharacterSearchInput
-    }
+    component: CharacterSearch
   },
   {
     path: '/character/:id',

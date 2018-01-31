@@ -13,7 +13,7 @@
 
         <div class="info-text">
           <h3 class="h-description">Description</h3>
-          <p>{{character.data.results[0].description}}</p>
+          <p>{{character.data.results[0].description.trim() || 'No description available.'}}</p>
 
           <h3>Comics</h3>
           <p><b>{{character.data.results[0].comics.available}}</b> comics available</p>
@@ -67,10 +67,15 @@
     flex-wrap: wrap;
   }
 
+  .info-text {
+    width: 100%;
+  }
+
   img {
     width: 216px;
     height: 324px;
     flex-shrink: 0;
+    background-color: #ccc;
   }
 
   small {

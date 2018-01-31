@@ -1,8 +1,10 @@
 <template>
+
   <router-link class="link" v-bind:to="`/character/${character.id}`">
-    <img v-bind:src="character.thumbnail.path + '/standard_small.' + character.thumbnail.extension" v-bind:alt="character.name">
+    <img class="link__img" v-bind:src="character.thumbnail.path + '/standard_fantastic.' + character.thumbnail.extension" v-bind:alt="character.name">
     {{character.name}}
   </router-link>
+
 </template>
 
 <script>
@@ -13,22 +15,46 @@
 </script>
 
 <style scoped>
+
   .link {
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 8px 0;
     color: #000;
     text-decoration: none;
+    display: inline-block;
   }
 
   .link:hover {
     text-decoration: underline;
   }
 
-  img {
-    width: 65px;
-    height: 45px;
-    margin-right: 10px;
-    flex-shrink: 0;
+  .link__img {
+    background-color: #eee;
+    width: calc((100vw - 60px) / 2);
+    height: calc((100vw - 60px) / 2);
+    vertical-align: middle;
+    margin-bottom: 5px;
+  }
+
+  @media (min-width: 400px) {
+
+    .link__img {
+      width: calc((100vw - 80px) / 3);
+      height: calc((100vw - 80px) / 3);
+    }
+  }
+
+  @media (min-width: 590px) {
+
+    .link__img {
+      width: calc((100vw - 100px) / 4);
+      height: calc((100vw - 100px) / 4);
+    }
+  }
+
+  @media (min-width: 700px) {
+
+    .link__img {
+      width: calc((700px - 100px) / 4);
+      height: calc((700px - 100px) / 4);
+    }
   }
 </style>
