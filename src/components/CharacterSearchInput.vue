@@ -18,8 +18,12 @@
         },
         set: function (newSearchInputValue) {
           this.$store.commit('updateSearchInputValue', newSearchInputValue);
+
           if (newSearchInputValue.length >= 3) {
             this.$store.dispatch('updateCharacters');
+          }
+          else {
+            this.$store.commit('updateCharacters', {});
           }
         }
       }
