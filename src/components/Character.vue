@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <router-link class="link" to="/">< back to search</router-link>
+    <router-link class="link" to="/">&lt; back to search</router-link>
 
     <div v-if="character.data">
       <h2>{{character.data.results[0].name}}</h2>
