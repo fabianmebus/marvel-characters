@@ -3,7 +3,7 @@
 
     <header class="header">
       <h2 class="header__headline">
-        <b>{{characters.data.count}}</b> search results for "<b>{{query}}</b>"
+        <b>{{characters.data.count}}</b> search results for "<b>{{searchInputValue}}</b>"
       </h2>
     </header>
 
@@ -31,14 +31,16 @@
 
   export default {
     name: 'character-search-result',
-    props: ['characters', 'query'],
     components: {
       'character-search-result-item': CharacterSearchResultItem
     },
-    data() {
-      return {
-        gridView: true
-      };
+    computed: {
+      searchInputValue: function () {
+        return this.$store.state.searchInputValue;
+      },
+      characters: function () {
+        return this.$store.state.characters;
+      }
     }
   };
 </script>

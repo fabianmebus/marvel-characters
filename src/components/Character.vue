@@ -3,7 +3,7 @@
 
     <router-link class="link" to="/">< back to search</router-link>
 
-    <div v-if="characterDataReady">
+    <div v-if="character.data">
       <h2>{{character.data.results[0].name}}</h2>
 
       <div class="info">
@@ -31,23 +31,16 @@
 <script>
   export default {
     name: 'character',
-    data() {
-      return {
-        character: [],
-        characterDataReady: false
-      };
+    computed: {
+      character: function () {
+        return this.$store.state.character;
+      }
     },
-    created: function () {
-      // For information about authentication see https://developer.marvel.com/documentation/authorization
-      this.$http
-        .get(`https://gateway.marvel.com:443/v1/public/characters/${this.$route.params.id}?apikey=3da29d81144b13d6f2596a60732f2efc&ts=1&hash=78cea934912a6a191f4e0ca2fc5e62c4`)
-        .then(response => {
-          this.character = response.body;
-          this.characterDataReady = true;
-        }, error => {
-          // todo: provide proper error message
-          console.error(error);
-        });
+    beforeCreate: function () {
+      this.$store.dispatch('updateCharacter', this.$route.params.id);
+    },
+    destroyed: function () {
+      this.$store.commit('updateCharacter', {});
     }
   };
 </script>

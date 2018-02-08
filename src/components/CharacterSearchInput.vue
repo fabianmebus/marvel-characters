@@ -1,26 +1,27 @@
 <template>
   <div>
+
     <label for="searchInput">Character Search</label>
-    <input v-model="inputQuery" id="searchInput" type="search" placeholder="e.g. hulk">
+    <input v-model="searchInputValue" id="searchInput" type="search" placeholder="e.g. hulk">
     <small>Enter at least 3 letters, results will be automatically shown and updated.</small>
+
   </div>
 </template>
 
 <script>
   export default {
     name: 'character-search-input',
-    props: ['oldQuery'],
-    data() {
-      return {
-        inputQuery: ''
-      };
-    },
-    created: function () {
-      this.inputQuery = this.oldQuery;
-    },
-    watch: {
-      inputQuery: function (query) {
-        this.$emit('queryChanged', query);
+    computed: {
+      searchInputValue: {
+        get: function () {
+          return this.$store.state.searchInputValue;
+        },
+        set: function (newSearchInputValue) {
+          this.$store.commit('updateSearchInputValue', newSearchInputValue);
+          if (newSearchInputValue.length >= 3) {
+            this.$store.dispatch('updateCharacters');
+          }
+        }
       }
     }
   }

@@ -17,20 +17,8 @@
     </header>
 
     <main>
-      <!--
 
-      CharacterSearch
-      -> characters
-      -> query
-
-      Character
-      -> characters
-
-      -->
-      <router-view
-        v-bind="{'characters': characters, 'query': query}"
-        v-on:queryChanged="handelQueryChange">
-      </router-view>
+      <router-view></router-view>
 
     </main>
 
@@ -41,39 +29,6 @@
 
   </div>
 </template>
-
-<script>
-
-
-  export default {
-    name: 'app',
-    data() {
-      return {
-        query: '',
-        characters: []
-      };
-    },
-    methods: {
-      handelQueryChange: function (newQuery) {
-        if (newQuery.length >= 3) {
-          this.query = newQuery;
-          // For information about authentication see https://developer.marvel.com/documentation/authorization
-          this.$http
-            .get(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${newQuery}&limit=100&orderBy=name&apikey=3da29d81144b13d6f2596a60732f2efc&ts=1&hash=78cea934912a6a191f4e0ca2fc5e62c4`)
-            .then(response => {
-              this.characters = response.body;
-            }, error => {
-              // todo: provide proper error message
-              console.error(error);
-            });
-        } else {
-          this.characters = [];
-          this.query = '';
-        }
-      }
-    }
-  }
-</script>
 
 <style scoped>
 

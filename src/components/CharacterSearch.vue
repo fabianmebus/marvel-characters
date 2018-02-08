@@ -1,14 +1,10 @@
 <template>
-
   <div>
-    <character-search-input
-      v-bind:oldQuery="query"
-      v-on:queryChanged="handelQueryChange"></character-search-input>
-    <character-search-result
-      v-if="characters.length !== 0"
-      v-bind="{'characters': characters, 'query': query}"></character-search-result>
-  </div>
 
+    <character-search-input></character-search-input>
+    <character-search-result v-if="characters.data"></character-search-result>
+
+  </div>
 </template>
 
 <script>
@@ -17,14 +13,13 @@
 
   export default {
     name: 'character-search',
-    props: ['query', 'characters'],
     components: {
       'character-search-input': CharacterSearchInput,
       'character-search-result': CharacterSearchResult
     },
-    methods: {
-      handelQueryChange: function (newQuery) {
-        this.$emit('queryChanged', newQuery);
+    computed: {
+      characters: function () {
+        return this.$store.state.characters;
       }
     }
   };

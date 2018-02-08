@@ -1,10 +1,10 @@
 <template>
-
   <router-link class="link" v-bind:to="`/character/${character.id}`">
+
     <img class="link__img" v-bind:src="character.thumbnail.path + '/standard_fantastic.' + character.thumbnail.extension" v-bind:alt="character.name">
     {{character.name}}
-  </router-link>
 
+  </router-link>
 </template>
 
 <script>
