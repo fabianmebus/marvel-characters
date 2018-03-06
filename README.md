@@ -1,8 +1,8 @@
 # Marvel Characters
 
-> With this simple app you get information about Marvel characters and it serves for me as an experience in learning the main concepts behind Vue.js.
+> With this simple app you get information about Marvel characters, sign in with your Google account and save your favorite characters. The app serves for me as an experience in learning the main concepts behind Vue.js and Firebase.
 
-Have a look at: https://fabianmebus.github.io/marvel-characters/
+Have a look at: https://marvel-characters-273a5.firebaseapp.com/
 
 ## Build Setup
 
@@ -12,9 +12,4 @@ npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
-
-# build for production with minification
-npm run build
 ```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
