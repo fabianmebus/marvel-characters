@@ -1,7 +1,9 @@
 <template>
   <div>
 
-    <label for="searchInput">Character Search</label>
+    <label for="searchInput">
+      <h1>Character Search</h1>
+    </label>
     <input v-model="searchInputValue" id="searchInput" type="search" placeholder="e.g. hulk">
     <small>Enter at least 3 letters, results will be automatically shown and updated.</small>
 
@@ -14,27 +16,28 @@
     computed: {
       searchInputValue: {
         get: function () {
-          return this.$store.state.searchInputValue;
+          return this.$store.getters.searchInputValue;
         },
         set: function (newSearchInputValue) {
-          this.$store.commit('updateSearchInputValue', newSearchInputValue);
-
-          if (newSearchInputValue.length >= 3) {
-            this.$store.dispatch('updateCharacters');
+          if (newSearchInputValue !== undefined && newSearchInputValue.length >= 3) {
+            this.$store.commit('setSearchInputValue', newSearchInputValue);
+            this.$store.dispatch('fetchCharacters');
           }
           else {
-            this.$store.commit('updateCharacters', {});
+            this.$router.push({path: '/'});
+            this.$store.commit('setCharacters', null);
           }
+
         }
-      }
-    }
+      },
+    },
   }
 </script>
 
 <style scoped>
   label {
     display: inline-block;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
   }
 
   ::placeholder {

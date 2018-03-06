@@ -2,14 +2,14 @@
   <div>
 
     <character-search-input></character-search-input>
-    <character-search-result v-if="characters.data"></character-search-result>
+    <character-search-result v-if="characters !== null"></character-search-result>
 
   </div>
 </template>
 
 <script>
-  import CharacterSearchInput from "../components/CharacterSearchInput.vue";
-  import CharacterSearchResult from "../components/CharacterSearchResult.vue";
+  import CharacterSearchInput from "./CharacterSearchInput.vue";
+  import CharacterSearchResult from "./CharacterSearchResult.vue";
 
   export default {
     name: 'character-search',
@@ -19,7 +19,7 @@
     },
     computed: {
       characters: function () {
-        return this.$store.state.characters;
+        return this.$store.getters.characters;
       }
     }
   };

@@ -10,9 +10,9 @@
     <div v-if="characters.data.count > 0">
 
       <ul class="list">
-        <li class="list__item" v-for="character in characters.data.results" v-bind:key="character.id">
+        <li class="list__item" v-for="character in characters.data.results" :key="character.id">
 
-          <character-search-result-item v-bind:character="character"></character-search-result-item>
+          <character-search-result-item :character="character"></character-search-result-item>
 
         </li>
       </ul>
@@ -36,10 +36,10 @@
     },
     computed: {
       searchInputValue: function () {
-        return this.$store.state.searchInputValue;
+        return this.$store.getters.searchInputValue;
       },
       characters: function () {
-        return this.$store.state.characters;
+        return this.$store.getters.characters;
       }
     }
   };
