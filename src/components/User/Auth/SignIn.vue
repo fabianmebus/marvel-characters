@@ -1,7 +1,13 @@
 <template>
   <div>
-    <h1>Sign in</h1>
-    <button class="user-action" @click="signIn">Sign in</button>
+    <h1>Sign in and organize your favorite characters</h1>
+    <p>
+      As soon as you signed in you get a list for your favorite characters. Add your favorite characters from the character details page to your list and
+      organize your characters from the favorites page.
+    </p>
+    <button class="user-action" @click="signIn">
+      Sign in with Google
+    </button>
   </div>
 </template>
 
