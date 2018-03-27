@@ -2,7 +2,7 @@
 
 > With this simple app you get information about Marvel characters, sign in with your Google account and save your favorite characters. The app serves for me as an experience in learning the main concepts behind Vue.js and Firebase.
 
-Have a look at: https://marvel-characters-273a5.firebaseapp.com/
+Have a look at: https://marvel-characters.fabianmebus.com/
 
 ## Build Setup
 
