@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
-// import firebase from 'firebase'
 
 Vue.use(VueRouter);
 
+import PageNotFound from '../components/PageNotFound.vue';
 import CharacterSearch from '../components/Character/CharacterSearch.vue';
 import Character from '../components/Character/Character.vue';
 import SignIn from '../components/User/Auth/SignIn.vue';
@@ -45,6 +45,12 @@ const router = new VueRouter({
         requiresAuth: true
       },
     },
+    {
+      // default route, when none of the above matches
+      path: "*",
+      name: 'pageNotFound',
+      component: PageNotFound
+    }
   ]
 });
 
